@@ -12,11 +12,11 @@ public class MainFrame extends JFrame {
 
     /**
      * 创建一个窗口
-     * @param name 窗口的title
      * @param branchWindowName 窗口的类型
+     * @param JFrame 一个窗口
      */
-    public void createWindow(String name, String branchWindowName){
-        JFrame frame = new JFrame(name);
+    public void createWindow(String branchWindowName, JFrame frame){
+        //JFrame frame = new JFrame(name);
 
         //从配置文件中获取该窗口的属性
         int x = Integer.parseInt(GetDefaultData.getLocationX(branchWindowName));
