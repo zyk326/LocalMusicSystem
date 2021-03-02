@@ -6,7 +6,9 @@ import java.util.ResourceBundle;
 /**
  * 获取配置文件中各项信息
  */
-public class GetDefaultData {
+public final class GetDefaultData {
+
+    private GetDefaultData(){}
 
     public static void main(String[] args) {
     }

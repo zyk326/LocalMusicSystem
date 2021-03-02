@@ -31,10 +31,21 @@ public class Center {
     }
 
     /**
+     * 传递 TestArea 对象
+     * @return TextArea target
+     */
+    public static TextArea getTextArea() {
+        return textArea;
+    }
+
+    /**
      * 在中部功能区中加入元素
      * @param CenterPanel 中部功能区面板
      */
+    static TextArea textArea = new TextArea();
     public void addCenterElements(Panel CenterPanel){
-
+        //设置只读
+        textArea.setEditable(false);
+        CenterPanel.add(textArea);
     }
 }

@@ -1,9 +1,12 @@
 package com.functionalarea;
 
 import util.frame.MainButton;
+import util.shareelements.GetElements;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * 初始化顶部功能区
@@ -12,6 +15,9 @@ public class Top {
     public static void main(String[] args) {
     }
 
+    //实例监听对象
+    Listerens topListener = new Listerens();
+    //实例按钮元素对象
     MainButton mainButton = new MainButton();
 
 
@@ -48,5 +54,36 @@ public class Top {
         mainButton.createButton("TopMyMusic", top_button_mymusic);
         //将按钮加入面板
         TopPanel.add(top_button_mymusic);
+        //给按钮添加监听
+        top_button_mymusic.addActionListener(topListener);
     }
 }
+
+/**
+ * 顶部功能区监听类
+ */
+class Listerens implements ActionListener{
+
+    /**
+     * 监听
+     * @param e 按钮label
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //获取按钮的label
+        String cmd = e.getActionCommand();
+        //实例化获取元素，启用此对象获取元素
+        GetElements g = new GetElements();
+
+        //如果按钮是--我的音乐--
+        if(cmd.equals("我的音乐")){
+            System.out.println("当前动作： 按下--" + cmd + "--");
+            //利用g中方法获取top板块中TextArea元素
+            g.GetTopElements(cmd);
+            //执行对应动作
+            GetElements.CenterTextArea.append("监听成功\n");
+        }
+    }
+}
+
+

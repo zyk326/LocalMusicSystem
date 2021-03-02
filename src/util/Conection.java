@@ -5,32 +5,11 @@ import java.sql.*;
 /**
  * 数据库链接类
  */
-public class Conection {
-    public static void main(String[] args) {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String url = GetDefaultData.getUrl();
-        String user = GetDefaultData.getUser();
-        String password = GetDefaultData.getPassword();
-        try {
-            //建立连接
-            con = DriverManager.getConnection(url, user, password);
-            //开启通道
-            //sql语句
-            String sql = "select musicName, musicData from t_music";
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-
-            while(rs.next()){
-                System.out.println(rs.getString("musicName"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally{
-            ReleaseConection(con, ps, rs);
-        }
+public final class Conection {
+    /**
+     * 工具类必须将无参构造函数声明为私有
+     */
+    private Conection(){
     }
 
     /**
@@ -44,6 +23,19 @@ public class Conection {
             e.printStackTrace();
         }
     }
+
+    /**
+     * 建立连接
+     * @param con 数据库连接对象
+     * @throws SQLException 数据库错误抛出
+     */
+    /*public static Connection getConnection (Connection con) throws SQLException {
+        String url = GetDefaultData.getUrl();
+        String user = GetDefaultData.getUser();
+        String password = GetDefaultData.getPassword();
+        con = DriverManager.getConnection(url, user, password);
+        return con;
+    }*/
 
     /**
      * 关闭各种数据流
