@@ -1,5 +1,6 @@
 package com.functionalarea;
 
+import com.backstage.operating.Select;
 import util.frame.MainButton;
 import util.shareelements.GetElements;
 
@@ -80,8 +81,16 @@ class Listerens implements ActionListener{
             System.out.println("当前动作： 按下--" + cmd + "--");
             //利用g中方法获取top板块中TextArea元素
             g.GetTopElements(cmd);
-            //执行对应动作
-            GetElements.CenterTextArea.append("监听成功\n");
+            /**
+             * 执行对应动作
+             * 将音乐信息显示到窗口上
+             */
+            //GetElements.CenterTextArea.append("监听成功\n");
+            //执行查询操作
+            Select select = new Select();
+
+            //获取hashmap中歌曲名称信息
+            GetElements.CenterTextArea.setText(select.SelectIntoHashMap("select musicName, musicData from t_music").get("musicName").toString() + "\n");
         }
     }
 }

@@ -10,7 +10,7 @@ import java.sql.*;
 /**
  * 具体操作 --插入数据到数据库
  */
-public class insertintomysql {
+public class Insertintomysql {
     public static void main(String[] args) {
     }
 
@@ -34,10 +34,10 @@ public class insertintomysql {
             String sql = "insert into t_music (musicName, musicData) values(?, ?)";
             ps = con.prepareStatement(sql);
             //执行sql
-            ps.setString(1, "她说");
+            ps.setString(1, "像我这样的人");
 
 
-            File file = new File("E:\\Code\\Java\\documents\\谭晶 - 赤伶.m4a");
+            File file = new File("C:\\Users\\Bar.Z\\Downloads\\Music\\林俊杰 - 像我这样的人.mp3");
             is = new FileInputStream(file);
             ps.setBlob(2, is);
 
