@@ -2,8 +2,10 @@ package com.backstage.operating;
 
 import com.backstage.Selectfrommysql;
 import util.operating.select.ParsingResult;
+import util.io.putIOStreamToPath;
 
 import javax.servlet.jsp.jstl.sql.Result;
+import java.io.*;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,16 +86,22 @@ public class Select {
                         //加入链表
                         buf.add(columnName);
                         System.out.print(columnName + "  --  ");
-                    }else if (res.getRowsByIndex()[i][j] instanceof Blob){
+                    }/*
+                    //不会是Blob类型
+                    else if (res.getRowsByIndex()[i][j] instanceof Blob){
                         System.out.println("Blob  ");
-                        /**
+                        *//**
                          * 此处放上对Blob的处理
-                         */
+                         *//*
                         Blob blob = (Blob)res.getRowsByIndex()[i][j];
                         //加入链表
                         buf.add(blob);
-                    }else {
-                        System.out.println("未知数据  ");
+                    }*/else {
+                        System.out.println("这是二进制数据流");
+                        /**
+                         * 对二进制流进行处理
+                         */
+                        putIOStreamToPath.getIoStream(res.getRowsByIndex()[i][j]);
                     }
                 }
                 /**

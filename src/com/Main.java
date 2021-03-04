@@ -44,6 +44,5 @@ public class Main {
         Center center = new Center(jFrame);
         center.createCenterFunctionalArea();
 
-
     }
 }
