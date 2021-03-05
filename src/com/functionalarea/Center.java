@@ -1,5 +1,7 @@
 package com.functionalarea;
 
+import util.elements.centerelements.ButtonAndJTextField;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,12 +20,18 @@ public class Center {
         jFrame = jframe;
     }
 
+    public static Panel getCenterPanel() {
+        return CenterPanel;
+    }
     /**
      * 创建中部功能区
      */
+    static Panel CenterPanel = null;
+
     public void createCenterFunctionalArea(){
         //初始化中部面板
-        Panel CenterPanel = new Panel();
+        CenterPanel = new Panel();
+        CenterPanel.setLayout(new FlowLayout());
         //加入主面板
         jFrame.add(CenterPanel);
         //加入元素

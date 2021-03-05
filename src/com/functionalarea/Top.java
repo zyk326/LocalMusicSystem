@@ -1,6 +1,8 @@
 package com.functionalarea;
 
 import com.backstage.operating.Select;
+import util.elements.centerelements.ButtonAndJTextField;
+import util.elements.centerelements.top.createButtonAndField;
 import util.frame.MainButton;
 import util.shareelements.GetElements;
 
@@ -74,23 +76,30 @@ class Listerens implements ActionListener{
         //获取按钮的label
         String cmd = e.getActionCommand();
         //实例化获取元素，启用此对象获取元素
-        GetElements g = new GetElements();
+        //GetElements g = new GetElements();
 
         //如果按钮是--我的音乐--
         if(cmd.equals("我的音乐")){
             System.out.println("当前动作： 按下--" + cmd + "--");
             //利用g中方法获取top板块中TextArea元素
-            g.GetTopElements(cmd);
+            GetElements.GetTopElements(cmd);
             /**
              * 执行对应动作
              * 将音乐信息显示到窗口上
              */
-            //GetElements.CenterTextArea.append("监听成功\n");
             //执行查询操作
             Select select = new Select();
 
             //获取hashmap中歌曲名称信息
             GetElements.CenterTextArea.setText(select.SelectIntoHashMap("select musicName, musicData from t_music").get("musicName").toString() + "\n");
+
+            //加入每条音乐 附带的button 和 JTextField
+            Top.jFrame.add(GetElements.GetCenterPanel());
+            Panel p = GetElements.GetCenterPanel();
+            Top.jFrame.remove(GetElements.GetCenterPanel());
+            Top.jFrame.repaint();
+            createButtonAndField.addMusicElements(select.SelectIntoHashMap("select musicName, musicData from t_music"),p);
+            Top.jFrame.add(p);
         }
     }
 }

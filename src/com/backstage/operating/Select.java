@@ -1,12 +1,10 @@
 package com.backstage.operating;
 
 import com.backstage.Selectfrommysql;
-import util.operating.select.ParsingResult;
 import util.io.putIOStreamToPath;
+import util.operating.select.ParsingResult;
 
 import javax.servlet.jsp.jstl.sql.Result;
-import java.io.*;
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,11 +18,11 @@ public class Select {
     static Result res = null;
     static HashMap<String , List<Object>> columnsData = new HashMap<>();
 
-    public static void main(String[] args) {
-//        String sql = "select musicName, musicData from t_music";
-//        SelectIntoHashMap(sql);
-    }
+    public static void main(String[] args) {}
 
+    public static Result getRes() {
+        return res;
+    }
 
     /**
      * 构造函数，直接查找
@@ -76,7 +74,6 @@ public class Select {
                     /**
                      * 遍历本地结果集数据
                      */
-//                    String columnName = (String) res.getRowsByIndex()[i][j];
                     if (res.getRowsByIndex()[i][j] instanceof String){
                         System.out.print("String  ");
                         /**
@@ -86,17 +83,7 @@ public class Select {
                         //加入链表
                         buf.add(columnName);
                         System.out.print(columnName + "  --  ");
-                    }/*
-                    //不会是Blob类型
-                    else if (res.getRowsByIndex()[i][j] instanceof Blob){
-                        System.out.println("Blob  ");
-                        *//**
-                         * 此处放上对Blob的处理
-                         *//*
-                        Blob blob = (Blob)res.getRowsByIndex()[i][j];
-                        //加入链表
-                        buf.add(blob);
-                    }*/else {
+                    }else {
                         System.out.println("这是二进制数据流");
                         /**
                          * 对二进制流进行处理
@@ -119,34 +106,5 @@ public class Select {
         }
 
         return columnsData;
-        /**
-         * 使用ResultSet 出现错误
-         */
-        /*
-
-         */
-
-
-        /**
-         * 结果集配合hashmap得到数据
-         */ /*
-        try {
-            for (int i = 0; i < resuleSetData.get("columns").size(); i++){
-                while(res.next()){
-                    System.out.println(res.getString(resuleSetData.get("columns").get(i)));
-                }
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        } finally {
-            try {
-                if(res != null){
-                    res.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }*/
-
     }
 }
