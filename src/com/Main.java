@@ -25,7 +25,7 @@ public class Main {
         top.createTopFunctionalArea();
 
 
-        //初始化底部功能区
+        /*//初始化底部功能区
         Ground ground = new Ground(jFrame);
         ground.createGroundFunctionalArea();
 
@@ -37,7 +37,7 @@ public class Main {
 
         //初始化右部功能区
         Right right = new Right(jFrame);
-        right.createRightFunctionalArea();
+        right.createRightFunctionalArea();*/
 
 
         //初始化中部功能区

@@ -1,6 +1,7 @@
 package com.functionalarea;
 
 import com.backstage.operating.Select;
+import com.functionalarea.TopAndCenter.DealCenterInformation;
 import util.elements.centerelements.ButtonAndJTextField;
 import util.elements.centerelements.top.createButtonAndField;
 import util.frame.MainButton;
@@ -91,15 +92,20 @@ class Listerens implements ActionListener{
             Select select = new Select();
 
             //获取hashmap中歌曲名称信息
-            GetElements.CenterTextArea.setText(select.SelectIntoHashMap("select musicName, musicData from t_music").get("musicName").toString() + "\n");
+            GetElements.CenterTextArea.setText(
+                    DealCenterInformation.FormatData(select.SelectIntoHashMap("select musicName, singer, musicData, album from t_music"))
+                    );
 
+            /**
+             * 这个功能垃圾
+             */
             //加入每条音乐 附带的button 和 JTextField
-            Top.jFrame.add(GetElements.GetCenterPanel());
+            /*Top.jFrame.add(GetElements.GetCenterPanel());
             Panel p = GetElements.GetCenterPanel();
             Top.jFrame.remove(GetElements.GetCenterPanel());
             Top.jFrame.repaint();
             createButtonAndField.addMusicElements(select.SelectIntoHashMap("select musicName, musicData from t_music"),p);
-            Top.jFrame.add(p);
+            Top.jFrame.add(p);*/
         }
     }
 }

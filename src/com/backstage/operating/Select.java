@@ -88,7 +88,7 @@ public class Select {
                         /**
                          * 对二进制流进行处理
                          */
-                        putIOStreamToPath.getIoStream(res.getRowsByIndex()[i][j]);
+                        //putIOStreamToPath.getIoStream(res.getRowsByIndex()[i][j]);
                     }
                 }
                 /**

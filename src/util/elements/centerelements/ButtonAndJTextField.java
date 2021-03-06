@@ -25,6 +25,8 @@ public class ButtonAndJTextField {
         jtf.setEnabled(false);
         CenterPanel.add(jtf);
         CenterPanel.add(button);
+        CopyToLocal copyToLocal = new CopyToLocal();
+        button.addActionListener(copyToLocal);
     }
 }
 
@@ -34,7 +36,8 @@ class CopyToLocal implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
         if(cmd.equals("转存到本地")){
-            putIOStreamToPath.getIoStream(GetElements.GetResult().get);
+//            putIOStreamToPath.getIoStream(GetElements.GetResult());
+            System.out.println("成功监听");
         }
     }
 }

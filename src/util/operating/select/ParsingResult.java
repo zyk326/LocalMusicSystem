@@ -25,10 +25,10 @@ public class ParsingResult {
             System.out.println(entry.getKey() + "   " + entry.getValue());
         }*/
 
-        HashMap<String, List<Object>> jjj = new HashMap<>();
+        /*HashMap<String, List<Object>> jjj = new HashMap<>();
         List<Object> j = new ArrayList<>();
         j.add("df");
-        j.add(1);
+        j.add(1);*/
     }
 
     /**
