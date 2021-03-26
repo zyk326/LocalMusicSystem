@@ -1,6 +1,5 @@
 package com.functionalarea.TopAndCenter;
 
-import javax.management.ObjectName;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,10 +14,11 @@ public class DealCenterInformation {
 
     private DealCenterInformation(){}
 
-    static List<String> cloumns = new ArrayList<>();
-    static String [][] data = new String[99999][50];
+
 
     public static String FormatData(HashMap<String, List<Object> > dataMap){
+        List<String> cloumns = new ArrayList<>();
+        String [][] data = new String[99999][50];
         System.out.println("进入数据格式化处理");
         System.out.println("**********");
         String formatData = "";
@@ -30,8 +30,10 @@ public class DealCenterInformation {
              ) {
             if(!entry.getKey().equals(" musicData")){
                 cloumns.add(entry.getKey());
+                System.out.print(entry.getKey() + "  ");
             }
         }
+        System.out.println();
 
         for(int i = 0; i < cloumns.size(); i++){
             data[0][i] = cloumns.get(i);
@@ -58,7 +60,6 @@ public class DealCenterInformation {
             System.out.println();
             formatData += "\n";
         }
-
         System.out.println("**********");
         return formatData;
     }

@@ -13,6 +13,15 @@ public final class GetDefaultData {
     public static void main(String[] args) {
     }
 
+    public static String getSql() {
+        sql = bun.getString("sql");
+        return sql;
+    }
+
+    //获取基本sql
+    static String sql = "";
+
+
     /**
      * 获取窗口的宽
      * @param windowName 窗口的类型名
@@ -53,6 +62,11 @@ public final class GetDefaultData {
         return LocationY;
     }
 
+    public static String getWindowCloseWay(String windowName){
+        WindowCloseWay = bun.getString(windowName + "WindowCloseWay");
+        return WindowCloseWay;
+    }
+
     /**
      * 各项静态属性
      */
@@ -64,6 +78,7 @@ public final class GetDefaultData {
     static String WINDOWSIZEWIGHT = "";
     static String LocationX = "";
     static String LocationY = "";
+    static String WindowCloseWay = "";
 
     /**
      * 获取Url
@@ -127,6 +142,8 @@ public final class GetDefaultData {
     static String TopPanelTop_Right = ""   ;
     static String TopPanelGround_Left = "" ;
     static String TopPanelGround_Right = "";
+
+
 
 
     public static String getMyMusicButtonLabel(String type) {

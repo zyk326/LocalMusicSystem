@@ -1,6 +1,5 @@
 package com.functionalarea;
 
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -50,9 +49,12 @@ public class Center {
      * @param CenterPanel 中部功能区面板
      */
     static TextArea textArea = new TextArea();
+
     public void addCenterElements(Panel CenterPanel){
         //设置只读
         textArea.setEditable(false);
+
         CenterPanel.add(textArea);
+
     }
 }

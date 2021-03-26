@@ -2,8 +2,7 @@ package com.functionalarea;
 
 import com.backstage.operating.Select;
 import com.functionalarea.TopAndCenter.DealCenterInformation;
-import util.elements.centerelements.ButtonAndJTextField;
-import util.elements.centerelements.top.createButtonAndField;
+import util.GetDefaultData;
 import util.frame.MainButton;
 import util.shareelements.GetElements;
 
@@ -93,7 +92,7 @@ class Listerens implements ActionListener{
 
             //获取hashmap中歌曲名称信息
             GetElements.CenterTextArea.setText(
-                    DealCenterInformation.FormatData(select.SelectIntoHashMap("select musicName, singer, musicData, album from t_music"))
+                    DealCenterInformation.FormatData(select.SelectIntoHashMap(GetDefaultData.getSql()))
                     );
 
             /**

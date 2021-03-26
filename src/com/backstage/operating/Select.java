@@ -16,7 +16,19 @@ import java.util.Map;
 public class Select {
     //本地结果集，存放查找结果
     static Result res = null;
+
+    public static HashMap<String, List<Object>> getColumnsData() {
+        return columnsData;
+    }
+
     static HashMap<String , List<Object>> columnsData = new HashMap<>();
+
+    public static List<Object> getMusicdata() {
+        return musicdata;
+    }
+
+    //歌曲data链表
+    static List<Object> musicdata = new ArrayList<>();
 
     public static void main(String[] args) {}
 
@@ -55,6 +67,7 @@ public class Select {
          * 将结果规范化放入一个新的hashmap  columnsData
          */
 
+
         if (res.getRowCount() != 0) {
             /**
              * 进入循环
@@ -67,6 +80,7 @@ public class Select {
                  */
                 //创建这个字段的链表
                 List<Object> buf = new ArrayList<>();
+
                 /**
                  * 遍历该字段数据
                  */
@@ -82,13 +96,17 @@ public class Select {
                         String columnName = (String) res.getRowsByIndex()[i][j];
                         //加入链表
                         buf.add(columnName);
-                        System.out.print(columnName + "  --  ");
+                        System.out.println(columnName + "  --  ");
+
                     }else {
                         System.out.println("这是二进制数据流");
                         /**
                          * 对二进制流进行处理
                          */
+                        //直接下载到本地了
                         //putIOStreamToPath.getIoStream(res.getRowsByIndex()[i][j]);
+                        //加装成一个链表
+                        musicdata.add(res.getRowsByIndex()[i][j]);
                     }
                 }
                 /**

@@ -12,13 +12,13 @@ public class putIOStreamToPath {
     private putIOStreamToPath(){}
 
     //此路径由交互界面用户指定
-    static String path = "E:\\DevelopEnvirments\\Java\\test\\elements\\test.mp3";
+    //static String path = "E:\\DevelopEnvirments\\Java\\test\\elements\\test.mp3";
 
     /**
      *
      * @param binaryStream 存储歌曲信息的Object形式的二进制数据流流
      */
-    public static void getIoStream(Object binaryStream){
+    public static void getIoStream(Object binaryStream, String path, String name, String suffix){
         /**
          * 将Object转成二进制数组
          * 再将数组写入文件
@@ -37,7 +37,7 @@ public class putIOStreamToPath {
 
             System.out.println(bytes.length);
 
-            File file = new File(path);
+            File file = new File(path + "\\" + name + "." + suffix);
 
             f = new FileOutputStream(file);
 

@@ -2,6 +2,9 @@ package util.frame;
 
 import util.GetDefaultData;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
@@ -13,7 +16,7 @@ public class MainFrame extends JFrame {
     /**
      * 创建一个窗口
      * @param branchWindowName 窗口的类型
-     * @param JFrame 一个窗口
+     * @param
      */
     public void createWindow(String branchWindowName, JFrame frame){
         //JFrame frame = new JFrame(name);
@@ -24,10 +27,24 @@ public class MainFrame extends JFrame {
         int width = Integer.parseInt(GetDefaultData.getWindowWight(branchWindowName));
         int height = Integer.parseInt(GetDefaultData.getWindowHeight(branchWindowName));
 
+
+//        ScriptEngineManager manager = new ScriptEngineManager();
+//        ScriptEngine se = manager.getEngineByName("js");
+//        String str = "13>12&&'张三1'=='张三'";
+//        boolean result;
+//        try {
+//            result = ( Boolean)se.eval(str);
+//            System.out.println(result);
+//        } catch (ScriptException e) {
+//            e.printStackTrace();
+//        }
+
         //设置窗口基本属性
         frame.setVisible(true);
         frame.setLocation(x, y);
         frame.setSize(width,height);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.setDefaultCloseOperation(Integer.parseInt(GetDefaultData.getWindowCloseWay(branchWindowName)));
+        frame.setDefaultCloseOperation(Integer.parseInt(GetDefaultData.getWindowCloseWay(branchWindowName)));
     }
 }
